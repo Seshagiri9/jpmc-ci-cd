@@ -1,0 +1,22 @@
+server:
+  port: 5000
+  datasource:
+    # Use 'localhost' for local testing, or 'mysql-db' if running via Docker Compose
+    url: jdbc:mysql://localhost:3306/userprom
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.MySQLDialect
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,prometheus
